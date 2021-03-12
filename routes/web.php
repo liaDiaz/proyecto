@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('app', 'AppController');
+//Rutas del registro de usuraio
+
+//Route::get('register','AuthController@register')->name('auth.register');
+Route::get('/register', [AuthController::class, 'register']);
+Route::post('/do-register', [AuthController::class, 'doRegister'])->name('auth.do-register');
+Route::get('login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('login', [AuthController::class, 'doLogin'])->name('auth.do-login');
+
+Route::any('logout', [AuthController::class,'logout'])->name('auth.logout');
+
+
+
