@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('app', 'AppController');
+//Route::resource('app', 'AppController');
 //Rutas del registro de usuraio
 
 //Route::get('register','AuthController@register')->name('auth.register');
